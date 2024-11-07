@@ -52,8 +52,11 @@ require('lualine').setup {
 vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<F4>', function() vim.cmd[[BufDel]] end, {})
 vim.keymap.set('', '<C-b>', function()
-    vim.cmd[[Neotree toggle]]
-    vim.cmd[[wincmd p]]
+    if vim.bo.filetype == "neo-tree" then
+      vim.cmd.wincmd "p"
+    else
+      vim.cmd.Neotree "focus"
+    end
   end,
   {}
 )
@@ -66,3 +69,26 @@ vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] e
 vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
 vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
 vim.keymap.set('n', '<C-a>', function() vim.api.nvim_feedkeys("ggVG", "m") end, {})
+vim.keymap.set('n', '<C-left>', function() vim.api.nvim_feedkeys("ge", "m") end, {})
+vim.keymap.set('n', '<C-right>', function() vim.api.nvim_feedkeys("e", "m") end, {})
+vim.keymap.set('n', '<C-M-left>', function() vim.api.nvim_feedkeys("vB", "m") end, {})
+vim.keymap.set('v', '<C-M-left>', function() vim.api.nvim_feedkeys("B", "m") end, {})
+vim.keymap.set('n', '<C-M-right>', function() vim.api.nvim_feedkeys("vE", "m") end, {})
+vim.keymap.set('v', '<C-M-right>', function() vim.api.nvim_feedkeys("E", "m") end, {})
+vim.keymap.set('i', '<S-Home>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v0", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-Home>', function() vim.api.nvim_feedkeys("v0", "m") end, {})
+vim.keymap.set('i', '<S-Home>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v$", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-End>', function() vim.api.nvim_feedkeys("v$", "m") end, {})
+vim.keymap.set('i', '<S-Down>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v<Down>", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-Down>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("v<Down>", true, false, true), 'n', false) end, {})
+vim.keymap.set('v', '<S-Down>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Down>", true, false, true), 'n', false) end, {})
+vim.keymap.set('i', '<S-Left>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v<Left>", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-Left>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("v<Left>", true, false, true), 'n', false) end, {})
+vim.keymap.set('v', '<S-Left>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Left>", true, false, true), 'n', false) end, {})
+vim.keymap.set('i', '<S-Right>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v<Right>", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-Right>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("v<Right>", true, false, true), 'n', false) end, {})
+vim.keymap.set('v', '<S-Right>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Right>", true, false, true), 'n', false) end, {})
+vim.keymap.set('i', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v<Up>", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("v<Up>", true, false, true), 'n', false) end, {})
+vim.keymap.set('v', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up>", true, false, true), 'n', false) end, {})
+vim.keymap.set('v', '<Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Delete>", true, false, true), 'n', false) end, {})
