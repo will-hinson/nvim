@@ -49,6 +49,7 @@ require('lualine').setup {
   theme = 'nord'
 }
 
+-- bindings to open/close plugins and buffers
 vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<F4>', function() vim.cmd[[BufDel]] end, {})
 vim.keymap.set('', '<C-b>', function()
@@ -68,6 +69,8 @@ vim.keymap.set('', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] en
 vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
 vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
+
+-- bindings related to text selection
 vim.keymap.set('n', '<C-a>', function() vim.api.nvim_feedkeys("ggVG", "m") end, {})
 vim.keymap.set('n', '<C-left>', function() vim.api.nvim_feedkeys("ge", "m") end, {})
 vim.keymap.set('n', '<C-right>', function() vim.api.nvim_feedkeys("e", "m") end, {})
