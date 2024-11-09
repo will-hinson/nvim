@@ -53,11 +53,8 @@ require('lualine').setup {
 vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<F4>', function() vim.cmd[[BufDel]] end, {})
 vim.keymap.set('', '<C-b>', function()
-    if vim.bo.filetype == "neo-tree" then
-      vim.cmd.wincmd "p"
-    else
-      vim.cmd.Neotree "focus"
-    end
+    vim.cmd[[Neotree toggle]]
+    vim.cmd[[wincmd p]]
   end,
   {}
 )
