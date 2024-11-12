@@ -93,6 +93,12 @@ vim.keymap.set('n', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_repl
 vim.keymap.set('v', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up>", true, false, true), 'n', false) end, {})
 vim.keymap.set('v', '<Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Delete>", true, false, true), 'n', false) end, {})
 
+-- bindings related to text deletion
+vim.keymap.set('i', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc><Right>dBi", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("dB", true, false, true), 'n', false) end, {})
+vim.keymap.set('i', '<C-Delete>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc><Right>dei", true, false, true), 'n', false) end, {})
+vim.keymap.set('n', '<C-Delete>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("de", true, false, true), 'n', false) end, {})
+
 -- bindings related to moving lines around
 vim.keymap.set('i', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
 vim.keymap.set('n', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
