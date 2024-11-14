@@ -68,6 +68,7 @@ vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
 vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
 
 -- bindings related to text selection
+vim.keymap.set('i', '<C-a>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>ggVG", true, false, true), "n", false) end, {})
 vim.keymap.set('n', '<C-a>', function() vim.api.nvim_feedkeys("ggVG", "m") end, {})
 vim.keymap.set('n', '<C-left>', function() vim.api.nvim_feedkeys("ge", "m") end, {})
 vim.keymap.set('n', '<C-right>', function() vim.api.nvim_feedkeys("e", "m") end, {})
@@ -91,9 +92,9 @@ vim.keymap.set('v', '<S-Right>', function() vim.api.nvim_feedkeys(vim.api.nvim_r
 vim.keymap.set('i', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>v<Up>", true, false, true), 'n', false) end, {})
 vim.keymap.set('n', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("v<Up>", true, false, true), 'n', false) end, {})
 vim.keymap.set('v', '<S-Up>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Up>", true, false, true), 'n', false) end, {})
-vim.keymap.set('v', '<Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Delete>", true, false, true), 'n', false) end, {})
 
 -- bindings related to text deletion
+vim.keymap.set('v', '<Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Delete>", true, false, true), 'n', false) end, {})
 vim.keymap.set('i', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc><Right>dBi", true, false, true), 'n', false) end, {})
 vim.keymap.set('n', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("dB", true, false, true), 'n', false) end, {})
 vim.keymap.set('i', '<C-Delete>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc><Right>dei", true, false, true), 'n', false) end, {})
@@ -104,3 +105,6 @@ vim.keymap.set('i', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
 vim.keymap.set('n', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
 vim.keymap.set('i', '<M-Up>', function() vim.cmd[[silent! m -2]] end, {})
 vim.keymap.set('n', '<M-Up>', function() vim.cmd[[silent! m -2]] end, {})
+
+-- bindings related to the terminal
+vim.keymap.set('t', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>", true, false, true), 'n', false) end, {})

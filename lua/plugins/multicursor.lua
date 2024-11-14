@@ -28,6 +28,7 @@ return {
     branch = "1.0",
     config = function()
         local mc = require("multicursor-nvim")
+        local cmp = require("cmp")
 
         mc.setup()
 
@@ -37,6 +38,14 @@ return {
             function() mc.lineAddCursor(-1) end)
         set({"n", "v"}, "<M-S-Down>",
             function() mc.lineAddCursor(1) end)
+
+        set({"i"}, "<esc>", function()
+            if cmp.visible() then
+                cmp.mapping.abort()
+            else
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), 'n', false)
+            end
+        end)
 
         set({"n", "v"}, "<esc>", function()
             if not mc.cursorsEnabled() then
