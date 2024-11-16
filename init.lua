@@ -28,6 +28,7 @@ vim.cmd[[highlight Normal guibg=#1a1d23]]
 vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
 vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
 
+-- set up wilder for the command buffer
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
 wilder.set_option('renderer', wilder.popupmenu_renderer(
@@ -41,13 +42,32 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
   })
 ))
 
+-- set up oxocarbon. disabled for now
 --vim.opt.background = "dark" -- set this to dark or light
 --vim.cmd("colorscheme oxocarbon")
 
+-- set up lualine
 require('lualine').setup {
   icons_enabled = true,
   theme = 'nord'
 }
+
+-- set up gitsigns and enable current line blame  
+gitsigns = require('gitsigns')
+gitsigns.setup(
+  {
+    current_line_blame_opts = {
+      --virt_text = true,
+      virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+      delay = 0,
+      --ignore_whitespace = false,
+      --virt_text_priority = 100,
+      --use_focus = true,
+    },
+  }
+)
+vim.cmd[[hi GitSignsCurrentLineBlame gui=bold guifg=#616e88]]
+vim.cmd[[Gitsigns toggle_current_line_blame]]
 
 -- bindings to open/close plugins and buffers
 vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
