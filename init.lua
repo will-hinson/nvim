@@ -84,8 +84,21 @@ vim.keymap.set('n', '<C-M-f>', function() vim.cmd[[Telescope live_grep]] end, {}
 vim.keymap.set('n', '<C-g>', function() vim.cmd[[DiffviewOpen]] end, {})
 vim.keymap.set('', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
-vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
-vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
+vim.keymap.set('', '<C-PageUp>', function()
+    if vim.bo.filetype ~= 'toggleterm' then
+      vim.cmd[[bp]]
+    end
+  end,
+  {}
+)
+vim.keymap.set('', '<C-PageDown>', function()
+    if vim.bo.filetype ~= 'toggleterm' then
+      vim.cmd[[bn]]
+    end
+  end,
+  {}
+)
+vim.keymap.set('', '<C-p>', function() vim.cmd[[Telescope find_files]] end, {})
 
 -- bindings related to text selection
 vim.keymap.set('i', '<C-a>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>ggVG", true, false, true), "n", false) end, {})
