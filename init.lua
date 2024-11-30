@@ -145,3 +145,12 @@ vim.keymap.set('n', '<M-Up>', function() vim.cmd[[silent! m -2]] end, {})
 
 -- bindings related to the terminal
 vim.keymap.set('t', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>", true, false, true), 'n', false) end, {})
+
+if vim.uv.os_uname().sysname == 'Windows_NT' then
+  vim.o.laststatus = 3
+  vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, {
+    callback = function()
+      vim.o.laststatus = 3
+    end
+  })
+end
