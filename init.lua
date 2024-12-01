@@ -153,4 +153,6 @@ if vim.uv.os_uname().sysname == 'Windows_NT' then
       vim.o.laststatus = 3
     end
   })
+  vim.keymap.set('', '<M-t>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
+  vim.keymap.set('t', '<M-t>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 end
