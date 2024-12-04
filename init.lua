@@ -84,8 +84,6 @@ vim.keymap.set('n', '<C-M-f>', function() vim.cmd[[Telescope live_grep]] end, {}
 vim.keymap.set('n', '<C-g>', function() vim.cmd[[DiffviewOpen]] end, {})
 vim.keymap.set('', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
-vim.keymap.set('', '<F25>', function() vim.cmd[[ToggleTerm horizontal split]] end, {}) -- NOTE: <F25> is <C-F1>
-vim.keymap.set('t', '<F25>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 vim.keymap.set('', '<C-PageUp>', function()
     if vim.bo.filetype ~= 'toggleterm' then
       vim.cmd[[bp]]
