@@ -65,4 +65,4 @@ vim.keymap.set('', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] en
 vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
 vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
-
+vim.keymap.set('n', '<C-a>', function() vim.api.nvim_feedkeys("ggVG", "m") end, {})

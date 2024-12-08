@@ -44,7 +44,7 @@ return {
             elseif mc.hasCursors() then
                 mc.clearCursors()
             else
-                -- Default <esc> handler.
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), 'n', false)
             end
         end)
 
