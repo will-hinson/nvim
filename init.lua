@@ -28,6 +28,19 @@ vim.cmd[[highlight Normal guibg=#1a1d23]]
 vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
 vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
 
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
+wilder.set_option('renderer', wilder.popupmenu_renderer(
+  wilder.popupmenu_border_theme({
+    highlights = {
+      border = 'Normal', -- highlight to use for the border
+    },
+    -- 'single', 'double', 'rounded' or 'solid'
+    -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+    border = 'rounded',
+  })
+))
+
 --vim.opt.background = "dark" -- set this to dark or light
 --vim.cmd("colorscheme oxocarbon")
 
@@ -42,20 +55,3 @@ vim.keymap.set('n', '<C-f>', function() vim.cmd[[Telescope current_buffer_fuzzy_
 vim.keymap.set('n', '<C-M-f>', function() vim.cmd[[Telescope live_grep]] end, {})
 vim.keymap.set('n', '<C-g>', function() vim.cmd[[DiffviewOpen]] end, {})
 
---[[require('neo-tree').setup(
-  {
-    default_component_configs = {
-      git_status = {
-        symbols = {
-          unstaged = "U",
-          staged = "S",
-          unmerged = "UM",
-          renamed = "R",
-          deleted = "D",
-          untracked = "UT",
-          ignored = "I",
-        }
-      }
-    }
-  }
-)]]
