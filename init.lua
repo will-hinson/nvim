@@ -50,8 +50,13 @@ require('lualine').setup {
 }
 
 vim.keymap.set('n', '<F12>', vim.lsp.buf.definition, {})
-vim.keymap.set('n', '<F4>', function() vim.cmd[[bd]] end, {})
+vim.keymap.set('n', '<F4>', function() vim.cmd[[BufDel]] end, {})
+vim.keymap.set('', '<C-b>', function() vim.cmd[[Neotree show]] end, {})
 vim.keymap.set('n', '<C-f>', function() vim.cmd[[Telescope current_buffer_fuzzy_find]] end, {})
 vim.keymap.set('n', '<C-M-f>', function() vim.cmd[[Telescope live_grep]] end, {})
 vim.keymap.set('n', '<C-g>', function() vim.cmd[[DiffviewOpen]] end, {})
+vim.keymap.set('', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
+vim.keymap.set('t', '<C-`>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
+vim.keymap.set('', '<C-PageUp>', function() vim.cmd[[bp]] end, {})
+vim.keymap.set('', '<C-PageDown>', function() vim.cmd[[b#]] end, {})
 
