@@ -49,7 +49,15 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
 -- set up lualine
 require('lualine').setup {
   icons_enabled = true,
-  theme = 'nord'
+  theme = 'nord',
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'copilot', 'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
 }
 
 -- set up gitsigns and enable current line blame  
