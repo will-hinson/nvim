@@ -6,11 +6,14 @@ return {
       -- opts parameter is the default options table
       -- the function is lazy loaded so cmp is able to be required
       local cmp = require("cmp")
+      local copilot_suggestion = require("copilot.suggestion")
       -- modify the mapping part of the table
       opts.mapping["<Tab>"] = cmp.mapping({
         i = function(fallback)
           if cmp.visible() then --and cmp.get_active_entry() then
             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          elseif copilot_suggestion.is_visible() then
+            copilot_suggestion.accept()
           else
             fallback()
           end
