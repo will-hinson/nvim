@@ -24,7 +24,8 @@ vim.opt.fillchars = vim.opt.fillchars + 'diff:╱'
 -- NOTE: this is the configuration for Nord
 vim.g.nord_disable_background = true
 vim.cmd[[colorscheme nord]]
-vim.cmd[[highlight Normal guibg=#1a1d23]]
+--vim.cmd[[highlight Normal guibg=#1a1d23]]
+vim.cmd[[highlight Normal ctermbg=none guibg=none]]
 vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
 vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
 
