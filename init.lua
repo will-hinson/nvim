@@ -29,6 +29,10 @@ vim.cmd[[highlight Normal ctermbg=none guibg=none]]
 vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
 vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
 
+require("notify").setup({
+  background_colour = "#000000",
+})
+
 -- set up wilder for the command buffer
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
