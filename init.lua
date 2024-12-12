@@ -153,6 +153,9 @@ vim.keymap.set('i', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
 vim.keymap.set('n', '<M-Down>', function() vim.cmd[[silent! m +1]] end, {})
 vim.keymap.set('i', '<M-Up>', function() vim.cmd[[silent! m -2]] end, {})
 vim.keymap.set('n', '<M-Up>', function() vim.cmd[[silent! m -2]] end, {})
+vim.keymap.set('i', '<S-Tab>', function() vim.cmd[[<]] end, {})
+vim.keymap.set('n', '<S-Tab>', function() vim.cmd[[<]] end, {})
+vim.keymap.set('n', '<Tab>', function() vim.cmd[[>]] end, {})
 
 -- bindings related to the terminal
 vim.keymap.set('t', '<C-Backspace>', function() vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>", true, false, true), 'n', false) end, {})
