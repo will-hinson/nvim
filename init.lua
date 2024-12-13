@@ -36,6 +36,15 @@ require("nord").setup({
 })
 vim.cmd[[colorscheme nord]]
 
+-- set up default colors for pipeline.nvim. It links to these
+vim.api.nvim_set_hl(0, '_PipelineRunIconSuccess', {fg = '#a3be8c'})
+vim.api.nvim_set_hl(0, '_PipelineRunIconFailure', {fg = '#bf616a'})
+vim.api.nvim_set_hl(0, '_PipelineRunIconPending', {fg = '#ebcb8b'})
+
+-- set up colors for yaml
+vim.api.nvim_set_hl(0, 'yamlBlockMappingKey', {fg = '#81a1c1'})
+vim.api.nvim_set_hl(0, 'yamlPlainScalar', {fg = '#A3BE8C'})
+
 require("notify").setup({
   background_colour = "#000000",
 })
@@ -178,8 +187,3 @@ if vim.uv.os_uname().sysname == 'Windows_NT' then
   vim.keymap.set('', '<M-t>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
   vim.keymap.set('t', '<M-t>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 end
-
--- set up default colors for pipeline.nvim. It links to these
-vim.api.nvim_set_hl(0, '_PipelineRunIconSuccess', {fg = '#a3be8c'})
-vim.api.nvim_set_hl(0, '_PipelineRunIconFailure', {fg = '#bf616a'})
-vim.api.nvim_set_hl(0, '_PipelineRunIconPending', {fg = '#ebcb8b'})
