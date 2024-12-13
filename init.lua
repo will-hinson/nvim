@@ -43,6 +43,7 @@ vim.api.nvim_set_hl(0, '_PipelineRunIconPending', {fg = '#ebcb8b'})
 
 -- set up colors for yaml
 vim.api.nvim_set_hl(0, 'yamlBlockMappingKey', {fg = '#81a1c1'})
+vim.api.nvim_set_hl(0, 'yamlBlockString', {fg = '#A3BE8C'})
 vim.api.nvim_set_hl(0, 'yamlPlainScalar', {fg = '#A3BE8C'})
 
 require("notify").setup({
