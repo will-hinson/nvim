@@ -22,12 +22,19 @@ vim.opt.relativenumber = false
 vim.opt.fillchars = vim.opt.fillchars + 'diff:╱'
 
 -- NOTE: this is the configuration for Nord
-vim.g.nord_disable_background = true
-vim.cmd[[colorscheme nord]]
+--
+--vim.g.nord_disable_background = true
 --vim.cmd[[highlight Normal guibg=#1a1d23]]
-vim.cmd[[highlight Normal ctermbg=none guibg=none]]
-vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
-vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
+--vim.cmd[[highlight Normal ctermbg=none guibg=none]]
+--vim.cmd[[highlight WinBar cterm=bold gui=bold guifg=NvimLightGrey4 guibg=#1a1d23]]
+--vim.cmd[[highlight WinBarNC cterm=bold guifg=NvimLightGrey4 guibg=#16181d]]
+require("nord").setup({
+  transparent = true,
+  on_colors = function(colors)
+    colors['polar_night']['origin'] = "#1f222d"
+  end,
+})
+vim.cmd[[colorscheme nord]]
 
 require("notify").setup({
   background_colour = "#000000",

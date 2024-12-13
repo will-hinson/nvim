@@ -5,5 +5,5 @@
 
 ---@type LazySpec
 return {
-    "shaunsingh/nord.nvim",
+    "gbprod/nord.nvim",
 }
