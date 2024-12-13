@@ -27,6 +27,7 @@ return {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
     config = function()
+        local copilot_suggestion = require("copilot.suggestion")
         local mc = require("multicursor-nvim")
         local cmp = require("cmp")
 
@@ -42,6 +43,8 @@ return {
         set({"i"}, "<esc>", function()
             if cmp.visible() then
                 cmp.mapping.abort()
+            elseif copilot_suggestion.is_visible() then
+                copilot_suggestion.dismiss()
             else
                 vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<esc>", true, false, true), 'n', false)
             end
