@@ -13,6 +13,11 @@ return {
           if cmp.visible() then --and cmp.get_active_entry() then
             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
           elseif copilot_suggestion.is_visible() then
+            -- ensure that there is an active file encoding
+            if vim.bo.fileencoding._value == "" or vim.bo.fileencoding == "" then
+              vim.cmd[[set fileencoding=utf-8]]
+            end
+            
             copilot_suggestion.accept()
           else
             fallback()
@@ -63,6 +68,12 @@ return {
         }
       },
       use_libuv_file_watcher = true,
+    }
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    opts = {
+      shell = "psnologo.bat"
     }
   }
 }
