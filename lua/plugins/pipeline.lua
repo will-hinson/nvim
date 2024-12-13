@@ -12,6 +12,7 @@ return {
       PipelineRunIconFailure = {link = '_PipelineRunIconFailure'},
       PipelineRunIconStartup_failure = {link = '_PipelineRunIconFailure'},
       PipelineRunIconPending = { link = '_PipelineRunIconPending' },
+      PipelineRunIconQueued = { link = '_PipelineRunIconPending' },
       PipelineRunIconRequested = { link = '_PipelineRunIconPending' },
       PipelineRunIconWaiting = { link = '_PipelineRunIconPending' },
       PipelineRunIconIn_progress = { link = '_PipelineRunIconPending' },
