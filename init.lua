@@ -46,9 +46,6 @@ vim.api.nvim_set_hl(0, 'yamlBlockMappingKey', {fg = '#81a1c1'})
 vim.api.nvim_set_hl(0, 'yamlBlockString', {fg = '#A3BE8C'})
 vim.api.nvim_set_hl(0, 'yamlPlainScalar', {fg = '#A3BE8C'})
 
--- set up colors for sql
-vim.api.nvim_set_hl(0, 'sqlKeyword', {link = 'Statement'})
-
 require("notify").setup({
   background_colour = "#000000",
 })
@@ -198,6 +195,4 @@ if vim.uv.os_uname().sysname == 'Windows_NT' then
   vim.keymap.set('t', '<M-t>', function() vim.cmd[[ToggleTerm horizontal split]] end, {})
 end
 
--- set up indentation for sql
-vim.cmd('autocmd FileType sql setlocal shiftwidth=4')
-vim.cmd('autocmd FileType sql setlocal tabstop=4')
+require 'hex'.setup()
