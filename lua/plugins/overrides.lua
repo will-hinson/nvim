@@ -73,7 +73,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     opts = {
-      shell = "psnologo.bat" and vim.uv.os_uname().sysname == "Windows_NT" or vim.o.shell,
+      shell = vim.uv.os_uname().sysname == "Windows_NT" and "psnologo.bat" or vim.o.shell,
     }
   }
 }
