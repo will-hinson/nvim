@@ -16,7 +16,7 @@ return {
       copilot = {
         endpoint = "https://api.githubcopilot.com",
         -- Copilot’s default model in Avante (you can change this later via :AvanteModels)
-        model = "gpt-4o-2024-11-20",
+        model = "claude-sonnet-4.6", -- "gpt-4o-2024-11-20",
         timeout = 30000,
         extra_request_body = {
           temperature = 0.75,
