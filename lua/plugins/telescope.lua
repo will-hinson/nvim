@@ -16,7 +16,7 @@ return {
       local filename = vim.fs.basename(path)
       local directory = vim.fs.dirname(path)
 
-      return filename .. "/" .. directory
+      return directory .. "/" .. filename 
 
       -- this renders the filename/dir as columns. disabled for now
       --local filename_padded = string.format("%-30s", filename)
