@@ -16,6 +16,11 @@ return {
       local filename = vim.fs.basename(path)
       local directory = vim.fs.dirname(path)
 
+      -- if the directory is the project root, just show the filename
+      if directory == "." then
+        return filename
+      end
+
       return directory .. "/" .. filename 
 
       -- this renders the filename/dir as columns. disabled for now
